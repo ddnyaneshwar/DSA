@@ -46,4 +46,6 @@ public class LongestSubStringWithKthDistinctChar {
         }
         return maxLenght;
     }
+
+
 }

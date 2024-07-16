@@ -13,23 +13,43 @@ public class FindMaximumSubArrayOfSizeK {
     Input  : arr[] = {2, 3}, k = 3
     Output : Invalid
     Explanation: There is no subarray of size 3 as size of whole array is 2.
+
+    https://algo.monster/liteproblems/209
      */
     public static void main(String[] args) {
         int[] arr={100,200,300,400};
         int k=2;
         int result=findMaximumSum(arr,k);
         System.out.println(result);
+        int result1=findMinimumSum(arr,k);
+        System.out.println(result1);
     }
 
     private static int findMaximumSum(int[] arr, int k) {
+       int maxSum=0;
+       int left=0;
+       int currentSum=0;
+
+       for(int right=0;right<arr.length;right++){
+           currentSum+=arr[right];
+           if (right>=k-1){
+               maxSum=Math.max(currentSum,maxSum);
+               currentSum-=arr[left];
+               left++;
+           }
+       }
+       return maxSum;
+    }
+
+    private static int findMinimumSum(int[] arr, int k) {
+        int maxSum=Integer.MAX_VALUE;
         int left=0;
-        int maxSum=Integer.MIN_VALUE;
         int currentSum=0;
 
-        for (int right=0;right<arr.length;right++){
+        for(int right=0;right<arr.length;right++){
             currentSum+=arr[right];
-            if(right>=k-1){
-                maxSum=Math.max(currentSum,maxSum);
+            if (right>=k-1){
+                maxSum=Math.min(currentSum,maxSum);
                 currentSum-=arr[left];
                 left++;
             }
