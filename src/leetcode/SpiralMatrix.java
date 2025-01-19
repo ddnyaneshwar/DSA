@@ -34,9 +34,6 @@ public class SpiralMatrix {
                 System.out.println(matrix[i][colEnd]);
             }
             colEnd--;
-
-
-
         }
 
         return list;

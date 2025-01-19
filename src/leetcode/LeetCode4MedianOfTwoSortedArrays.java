@@ -47,7 +47,7 @@ public class LeetCode4MedianOfTwoSortedArrays {
 
 
 /*
-class Solution {
+class SolutionCustomer {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
         int total = nums1.length + nums2.length ;

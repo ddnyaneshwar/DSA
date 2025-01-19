@@ -13,6 +13,65 @@ public class MergeInterval {
     }
 
     private static void mergeIntervals(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(arr -> arr[0]));
+        List<int[]> list=new ArrayList<>();
+        for(int[] current :intervals){
+            if(list.isEmpty())
+                list.add(current);
+            else{
+                int[] prev=list.get(list.size()-1);
+                if(prev[1]>current[0]){
+                    prev[1]=Math.max(current[1],prev[1]);
+                }else {
+                    list.add(current);
+                }
+            }
+        }
+
+        System.out.println(Arrays.deepToString(list.toArray()));
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+private static void mergeIntervals(int[][] intervals) {
         Arrays.sort(intervals, Comparator.comparingInt(i->i[0]));
         List<int[]> merged =new ArrayList<>();
         int[] prevInterval=intervals[0];
@@ -29,4 +88,4 @@ public class MergeInterval {
         System.out.println("After Merging : "+ Arrays.deepToString(merged.toArray()));
         merged.toArray(new int[merged.size()][]);
     }
-}
+ */
