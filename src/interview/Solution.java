@@ -75,7 +75,6 @@ Loop:
 */
 import java.io.*;
 import java.util.*;
-import javafx.util.Pair;
 
 public class Solution {
   public static void main(String[] argv) {

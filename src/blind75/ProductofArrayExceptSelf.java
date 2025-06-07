@@ -42,6 +42,8 @@ public class ProductofArrayExceptSelf {
         for (int i = 1; i < nums.length; i++) {
             rst[i] = rst[i - 1] * nums[i - 1];
         }
+
+        System.out.println(Arrays.toString(rst));
         int right = 1;
         for (int i = nums.length - 1; i >= 0; i--) {
             rst[i] *= right;

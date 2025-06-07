@@ -9,19 +9,24 @@ public class StringPermutation {
         findPermutation(str,"");
     }
 
-    private static void findPermutation(String str, String ans) {
-        if (str.length()==0){
-            System.out.println(ans);
+    private static void findPermutation(String str, String s) {
+
+        if(str.length()==0){
+            System.out.println(s);
             return;
         }
+
         for (int i = 0; i < str.length(); i++) {
-            char current=str.charAt(i);
-            String left=str.substring(0,i);
-            String right=str.substring(i+1);
-            findPermutation(left+right, ans+current);
+            char currentChar=str.charAt(i);
+            String left = str.substring(0,i);
+            String right = str.substring(i+1);
+            findPermutation(left+right,s+currentChar);
         }
 
     }
+
+
+}
 /*
     private static Set<String> findPermutation(String str) {
         Set<String> perm = new HashSet<String>();
@@ -46,5 +51,19 @@ public class StringPermutation {
         String begin = str.substring(0, j);
         String end = str.substring(j);
         return begin + c + end;
-    }*/
-}
+    }
+
+    private static void findPermutation(String str, String ans) {
+        if (str.length()==0){
+            System.out.println(ans);
+            return;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            char current=str.charAt(i);
+            String left=str.substring(0,i);
+            String right=str.substring(i+1);
+            findPermutation(left+right, ans+current);
+        }
+
+    */
+
